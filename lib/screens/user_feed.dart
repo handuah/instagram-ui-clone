@@ -46,32 +46,32 @@ class _FeedState extends State<Feed> {
             'assets/images/a.jpg', 
             'handuah', 
             'Another Day', 
-            '190', 
-            '1,234'),
+             190, 
+             20),
 
             UserStory(
             'assets/images/b.jpg', 
             'assets/images/c.jpg', 
             'josiah', 
             'Another Day', 
-            '2000', 
-            '1,234'),
+             2000, 
+             50),
 
             UserStory(
             'assets/images/c.jpg', 
             'assets/images/e.jpg', 
             'joyce', 
             'Another Day', 
-            '1,000,987', 
-            '1,234'),
+            1000987, 
+            1234),
 
             UserStory(
             'assets/images/d.jpg', 
             'assets/images/d.jpg', 
             'raphael', 
             'Another Day', 
-            '190', 
-            '1,234'),
+            200, 
+            56),
 
         ],
       ),
@@ -125,16 +125,16 @@ class UserStory extends StatefulWidget {
   final String userStoryImage;
   final String userName;
   final String userCaption;
-  final String numberOfLikes;
-  final String numberOfComments;
+  final int numberOfLikes;
+  final int numberOfComments;
 
    UserStory(
-    @required this.userProfileImage,
-    @required this.userStoryImage,
-    @required this.userName,
+    this.userProfileImage,
+    this.userStoryImage,
+     this.userName,
     this.userCaption,
-    @required this.numberOfLikes,
-    @required this.numberOfComments,
+    this.numberOfLikes,
+    this.numberOfComments,
   );
 
   
@@ -148,12 +148,12 @@ class _UserStoryState extends State<UserStory> {
   //declaring a variable false for liked icon
   bool isLiked = false;
   bool isBookmarked = false;
+
    
   @override
   Widget build(BuildContext context) {
-    // String userName;
-    String numberOfLikes;
-    String numberOfComments;
+   
+    
     return Container(
   // color: Colors.red,
   child: Column(
@@ -221,7 +221,7 @@ class _UserStoryState extends State<UserStory> {
               },),
               //End of Code
 
-              
+
             ],
           ),
           ),
@@ -232,7 +232,7 @@ class _UserStoryState extends State<UserStory> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('$numberOfLikes likes', style: Styles.storyUsername, textAlign: TextAlign.left,),
+              Text(widget.numberOfLikes.toString() + ' likes', style: Styles.storyUsername, textAlign: TextAlign.left,),
               RichText(
                 text: TextSpan(
                   text: widget.userName,
@@ -242,7 +242,7 @@ class _UserStoryState extends State<UserStory> {
                   ],
                 ),
                 ),
-              Text('View All $numberOfComments comments', style: Styles.storyComments,), 
+              Text('View All ' +  widget.numberOfComments.toString() + ' comments', style: Styles.storyComments,), 
             ],
           ),
           ), 
